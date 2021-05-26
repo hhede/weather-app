@@ -1,6 +1,5 @@
 // date and time 
-function formatDate(timestamp){
-let now = new Date(timestamp);
+let now = new Date();
 let hour = now.getHours();
 if (hour < 10) {
   hour = `0${hour}`;
@@ -19,11 +18,9 @@ let days = [
   "Saturday"
 ];
 let day = days[now.getDay()];
-
 let date = document.querySelector("#date");
-
 date.innerHTML = `${day} ${hour}:${minute}`;
-}
+
 
 // search function
 function search(event) {
