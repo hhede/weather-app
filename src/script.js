@@ -1,8 +1,14 @@
 // date and time 
-let now = new Date();
-
+function formatDate(timestamp){
+let now = new Date(timestamp);
 let hour = now.getHours();
+if (hour < 10) {
+  hour = `0${hour}`;
+}
 let minute = now.getMinutes();
+if (minute < 10) {
+  minute = `0${minute}`;
+}
 let days = [
   "Sunday",
   "Monday",
@@ -17,6 +23,7 @@ let day = days[now.getDay()];
 let date = document.querySelector("#date");
 
 date.innerHTML = `${day} ${hour}:${minute}`;
+}
 
 // search function
 function search(event) {
@@ -41,6 +48,8 @@ function searchCity(city) {
 //show weather
 
 function showWeather(response) {
+console.log(response.data);
+
   let date = document.querySelector("#date");
   date.innerHTML = `${day} ${hour}:${minute}`;
 
