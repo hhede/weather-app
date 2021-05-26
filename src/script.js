@@ -45,7 +45,6 @@ function searchCity(city) {
 //show weather
 
 function showWeather(response) {
-console.log(response.data);
 
   let date = document.querySelector("#date");
   date.innerHTML = `${day} ${hour}:${minute}`;
