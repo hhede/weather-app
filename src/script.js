@@ -45,7 +45,7 @@ function searchCity(city) {
 //show weather
 
 function showWeather(response) {
-
+  
   let date = document.querySelector("#date");
   date.innerHTML = `${day} ${hour}:${minute}`;
 
@@ -71,6 +71,13 @@ function showWeather(response) {
   let windDiv = document.querySelector("#wind");
   let wind = Math.round(response.data.wind.speed);
   windDiv.innerHTML = `Wind: ${wind} m/s`;
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src", 
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 // show current position 
