@@ -96,3 +96,6 @@ function getCurrentPosition(event) {
 }
 let locationButton = document.querySelector(".current-button");
 locationButton.addEventListener("click", getCurrentPosition);
+
+// default city
+searchCity("New York");
