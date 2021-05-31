@@ -255,9 +255,46 @@ function showTokyoWeather(event) {
 
 let tokyoLink = document.querySelector("#tokyo-link");
 tokyoLink.addEventListener("click", showTokyoWeather)
+
+
 // weather forecast for the 5 next days 
 
+function showForecast() {
+let forecastElement = document.querySelector("#forecast");
 
+let = forecastHTML = `
+<div class="col-3"
+<div class="row">
+`;
+let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+days.forEach(function(day){
+forecastHTML = forecastHTML + `
+<div class="col-3">
+<span class="forecast-date" id="forecast">
+<h4>
+${day}
+</4>
+<h5 class="rounded-pill">
+7°C⛅️
+<br />
+<span class="weather-forecast-wind">
+5°C <i class="far fa-moon"></i>
+</span>
+</h5>
+</span>
+</div>
+`
+
+})
+
+forecastHTML = 
+forecastHTML + `
+</div>
+</div>
+`
+
+forecastElement.innerHTML = forecastHTML
+}
 
 
 
@@ -268,3 +305,4 @@ tokyoLink.addEventListener("click", showTokyoWeather)
 
 // default city
 searchCity("New York");
+showForecast();
