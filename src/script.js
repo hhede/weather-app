@@ -178,7 +178,7 @@ function showParisWeather(event) {
 }
 
 let parisLink = document.querySelector("#paris-link");
-parisLink.addEventListener("click", showParisWeather)
+parisLink.addEventListener("click", showParisWeather);
 
 
 function showLondonWeather(event) {
