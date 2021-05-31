@@ -41,6 +41,12 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showWeather);
+
+   parisLink.classList.remove("chosen");
+  londonLink.classList.remove("chosen");
+  newYorkLink.classList.remove("chosen");
+  melbourneLink.classList.remove("chosen");
+  tokyoLink.classList.remove("chosen");
 }
 
 //show weather = all the weather information
@@ -99,6 +105,12 @@ function showPosition(position) {
 function getCurrentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
+
+   parisLink.classList.remove("chosen");
+  londonLink.classList.remove("chosen");
+  newYorkLink.classList.remove("chosen");
+  melbourneLink.classList.remove("chosen");
+  tokyoLink.classList.remove("chosen");
 }
 let locationButton = document.querySelector(".current-button");
 locationButton.addEventListener("click", getCurrentPosition);
@@ -148,9 +160,102 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 
-// default city
-searchCity("New York");
+// Popular searches
+function showParisWeather(event) {
+  event.preventDefault();
 
+  parisLink.classList.add("chosen");
+  londonLink.classList.remove("chosen");
+  newYorkLink.classList.remove("chosen");
+  melbourneLink.classList.remove("chosen");
+  tokyoLink.classList.remove("chosen");
+
+  let units = "metric";
+  let apiKey = "0535f1f4c0803628dc00fea0a7af0bb0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=paris&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(showWeather);
+}
+
+let parisLink = document.querySelector("#paris-link");
+parisLink.addEventListener("click", showParisWeather)
+
+
+function showLondonWeather(event) {
+  event.preventDefault();
+
+  parisLink.classList.remove("chosen");
+  londonLink.classList.add("chosen");
+  newYorkLink.classList.remove("chosen");
+  melbourneLink.classList.remove("chosen");
+  tokyoLink.classList.remove("chosen");
+
+  let units = "metric";
+  let apiKey = "0535f1f4c0803628dc00fea0a7af0bb0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=london&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(showWeather);
+}
+
+let londonLink = document.querySelector("#london-link");
+londonLink.addEventListener("click", showLondonWeather)
+
+function showNewYorkWeather(event) {
+  event.preventDefault();
+
+  parisLink.classList.remove("chosen");
+  londonLink.classList.remove("chosen");
+  newYorkLink.classList.add("chosen");
+  melbourneLink.classList.remove("chosen");
+  tokyoLink.classList.remove("chosen");
+
+  let units = "metric";
+  let apiKey = "0535f1f4c0803628dc00fea0a7af0bb0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=new york&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(showWeather);
+}
+
+let newYorkLink = document.querySelector("#new-york-link");
+newYorkLink.addEventListener("click", showNewYorkWeather)
+
+function showMelbourneWeather(event) {
+  event.preventDefault();
+
+   parisLink.classList.remove("chosen");
+  londonLink.classList.remove("chosen");
+  newYorkLink.classList.remove("chosen");
+  melbourneLink.classList.add("chosen");
+  tokyoLink.classList.remove("chosen");
+
+  let units = "metric";
+  let apiKey = "0535f1f4c0803628dc00fea0a7af0bb0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=melbourne&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(showWeather);
+}
+
+let melbourneLink = document.querySelector("#melbourne-link");
+melbourneLink.addEventListener("click", showMelbourneWeather)
+
+function showTokyoWeather(event) {
+  event.preventDefault();
+
+   parisLink.classList.remove("chosen");
+  londonLink.classList.remove("chosen");
+  newYorkLink.classList.remove("chosen");
+  melbourneLink.classList.remove("chosen");
+  tokyoLink.classList.add("chosen");
+
+  let units = "metric";
+  let apiKey = "0535f1f4c0803628dc00fea0a7af0bb0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=tokyo&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(showWeather);
+}
+
+let tokyoLink = document.querySelector("#tokyo-link");
+tokyoLink.addEventListener("click", showTokyoWeather)
 // weather forecast for the 5 next days 
 
 
@@ -160,3 +265,7 @@ searchCity("New York");
 
 
 // Night mode 
+
+
+// default city
+searchCity("New York");

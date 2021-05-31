@@ -50,13 +50,17 @@ footer {
   display: block;
   margin: 0 auto;
 }
+.chosen {
+  cursor: pointer;
+  font-weight: 600;
+}
 .cities,
 .search,
 .paris,
 .london,
 .new-york,
 .melbourne,
-.hong-kong {
+.tokyo {
   list-style: none;
   display: inline;
   margin: 0 15px;
@@ -95,7 +99,7 @@ footer {
   position: relative;
   top: 40px;
 }
-.hong-kong:hover {
+.tokyo:hover {
   cursor: pointer;
   font-weight: 600;
 }
