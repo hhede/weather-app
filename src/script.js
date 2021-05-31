@@ -4,7 +4,8 @@ let hour = now.getHours();
 if (hour < 10) {
   hour = `0${hour}`;
 }
-let minute = now.getMinutes();
+
+  let minute = now.getMinutes();
 if (minute < 10) {
   minute = `0${minute}`;
 }
@@ -42,7 +43,7 @@ function searchCity(city) {
   axios.get(apiUrl).then(showWeather);
 }
 
-//show weather
+//show weather = all the weather information
 
 function showWeather(response) {
   
@@ -55,6 +56,8 @@ function showWeather(response) {
 
   let h2 = document.querySelector("#city");
   h2.innerHTML = `${response.data.name}`;
+
+  feelingTemperature = response.data.main.feels_like;
 
   let feelingDiv = document.querySelector("#feeling");
   let feeling = Math.round(response.data.main.feels_like);
@@ -108,10 +111,17 @@ function showFahrenheitTemperature(event) {
 
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
+  
   let weatherDiv = document.querySelector("#weather");
   let fTemp = Math.round(fahrenheitTemperature);
   weatherDiv.innerHTML = `${fTemp}°F`;
+
+   let feelingFahrenheitTemperature = (feelingTemperature * 9) / 5 + 32;
+   let feelingFDiv = document.querySelector("#feeling");
+   let feelingFTemp = Math.round(feelingFahrenheitTemperature);
+  feelingFDiv.innerHTML = `Feels like: ${feelingFTemp}°F`;
 }
+
 
 function showCelsiusTemperature(event) {
   event.preventDefault();
@@ -121,7 +131,13 @@ function showCelsiusTemperature(event) {
   let weatherDiv = document.querySelector("#weather");
   let cTemp = Math.round(celsiusTemperature);
   weatherDiv.innerHTML = `${cTemp}°C`;
+
+  let feelingDiv = document.querySelector("#feeling");
+  let feelingCTemp = Math.round(feelingTemperature);
+  feelingDiv.innerHTML = `Feels like: ${feelingCTemp}°C`;
 }
+
+let feelingTemperature = null;
 
 let celsiusTemperature = null;
 
@@ -134,3 +150,13 @@ celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 // default city
 searchCity("New York");
+
+// weather forecast for the 5 next days 
+
+
+
+
+
+
+
+// Night mode 
