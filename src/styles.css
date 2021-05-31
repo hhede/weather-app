@@ -119,11 +119,7 @@ footer {
   cursor: pointer;
   font-weight: 600;
 }
-.night-temp,
-.weather-night-time-temp {
-  font-size: medium;
-  color: #939ba9;
-}
+
 .paris:hover {
   cursor: pointer;
   font-weight: 600;
@@ -173,6 +169,7 @@ footer {
 }
 .weather-description,
 .weather-feeling,
+.weather-humidity,
 .weather-wind {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;

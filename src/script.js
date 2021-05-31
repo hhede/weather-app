@@ -69,10 +69,6 @@ function showWeather(response) {
   let feeling = Math.round(response.data.main.feels_like);
   feelingDiv.innerHTML = `Feels like: ${feeling}°C`;
 
-  let nightTimeDiv = document.querySelector("#nightTime");
-  let nightTime = Math.round(response.data.main.temp_night);
-  nightTimeDiv.innerHTML = `${nightTime}°C`;
-
   celsiusTemperature = response.data.main.temp;
 
   let weatherDiv = document.querySelector("#weather");
@@ -90,6 +86,9 @@ function showWeather(response) {
     );
 iconElement.setAttribute("alt", response.data.weather[0].description);
 
+let humidityElement = document.querySelector("#humidity");
+let humidity = response.data.main.humidity;
+humidityElement.innerHTML = `Humidity: ${humidity}%`;
 }
 
 // show current position 
