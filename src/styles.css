@@ -49,6 +49,7 @@ footer {
 .btn-group {
   display: block;
   margin: 0 auto;
+  padding-left: 9px;
 }
 .chosen {
   cursor: pointer;
@@ -128,7 +129,7 @@ footer {
   border: 4px solid #ffffff;
   border-radius: 10px;
   background-color: #fff;
-  padding-bottom: 90px;
+  padding-bottom: 20px;
 }
 .rounded-pill {
   font-size: 22px;
