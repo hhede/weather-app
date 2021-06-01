@@ -50,6 +50,11 @@ function searchCity(city) {
 }
 
 //show weather = all the weather information
+function getForecast(coordinates) {
+  let apiKey = "0535f1f4c0803628dc00fea0a7af0bb0";
+   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
 
 function showWeather(response) {
   
@@ -89,6 +94,8 @@ iconElement.setAttribute("alt", response.data.weather[0].description);
 let humidityElement = document.querySelector("#humidity");
 let humidity = response.data.main.humidity;
 humidityElement.innerHTML = `Humidity: ${humidity}%`;
+
+getForecast(response.data.coord);
 }
 
 // show current position 
@@ -259,7 +266,8 @@ tokyoLink.addEventListener("click", showTokyoWeather)
 
 // weather forecast for the 5 next days 
 
-function showForecast() {
+function showForecast(response) {
+  console.log(response.data.daily);
   let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
@@ -321,4 +329,3 @@ function showForecast() {
 
 // default city
 searchCity("New York");
-showForecast();

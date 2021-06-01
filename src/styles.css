@@ -96,10 +96,6 @@ footer {
 }
 .date {
 }
-.fifth {
-  position: relative;
-  top: 40px;
-}
 .tokyo:hover {
   cursor: pointer;
   font-weight: 600;
@@ -154,14 +150,6 @@ footer {
   border-radius: 10px;
 }
 
-.second {
-  position: relative;
-  top: 40px;
-}
-.third {
-  position: relative;
-  top: 80px;
-}
 .today {
   border: 20px dotted #f7f98e;
   border-radius: 10px;
