@@ -260,40 +260,56 @@ tokyoLink.addEventListener("click", showTokyoWeather)
 // weather forecast for the 5 next days 
 
 function showForecast() {
-let forecastElement = document.querySelector("#forecast");
-
-let = forecastHTML = `
-<div class="col-3"
-<div class="row">
+  let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day, index) {
+    if (index < 3) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+          <span class="forecast-date">
+          <h4>
+            ${day}
+          </4>
+          <h5 class="rounded-pill">
+            7°C⛅️
+            <br />
+            <span class="weather-forecast-wind">
+              5°C <i class="far fa-moon"></i>
+            </span>
+          </h5>
+          </span>
+        </div>
 `;
-let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-days.forEach(function(day){
-forecastHTML = forecastHTML + `
-<div class="col-3">
-<span class="forecast-date" id="forecast">
-<h4>
-${day}
-</4>
-<h5 class="rounded-pill">
-7°C⛅️
-<br />
-<span class="weather-forecast-wind">
-5°C <i class="far fa-moon"></i>
-</span>
-</h5>
-</span>
-</div>
-`
-
-})
-
-forecastHTML = 
-forecastHTML + `
-</div>
-</div>
-`
-
-forecastElement.innerHTML = forecastHTML
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  let forecastElement2 = document.querySelector("#forecast2");
+  let forecastHTML2 = `<div class="row">`;
+  days.forEach(function (day, index) {
+    if (index > 2) {
+      forecastHTML2 =
+        forecastHTML2 +
+        `<div class="col">
+          <span class="forecast-date">
+          <h4>
+            ${day}
+          </4>
+          <h5 class="rounded-pill">
+            7°C⛅️
+            <br />
+            <span class="weather-forecast-wind">
+              5°C <i class="far fa-moon"></i>
+            </span>
+          </h5>
+          </span>
+`;
+    }
+  });
+  forecastHTML2 = forecastHTML2 + `</div>`;
+  forecastElement2.innerHTML = forecastHTML2;
 }
 
 

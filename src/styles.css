@@ -143,7 +143,6 @@ footer {
 .row {
   padding-top: 30px;
 }
-
 .search {
   color: #fc9804;
   font-size: 20px;
@@ -179,7 +178,8 @@ footer {
 .weather-description {
   text-transform: capitalize;
 }
-.weather-forecast-wind {
+.weather-forecast-wind,
+.weather-forecast-night-temp {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   color: #939ba9;
