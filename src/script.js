@@ -20,7 +20,7 @@ let days = [
 ];
 let day = days[now.getDay()];
 let date = document.querySelector("#date");
-date.innerHTML = `Last updated: ${day} ${hour}:${minute}`;
+date.innerHTML = `${day} ${hour}:${minute}`;
 
 
 // search function
@@ -285,7 +285,7 @@ function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 3) {
+    if (index < 4 && index > 0) {
       forecastHTML =
         forecastHTML +
         `<div class="col">
@@ -312,7 +312,7 @@ function showForecast(response) {
   let forecastElement2 = document.querySelector("#forecast2");
   let forecastHTML2 = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index > 2 ) {
+    if (index < 6 && index > 3) {
       forecastHTML2 =
         forecastHTML2 +
         `<div class="col">
