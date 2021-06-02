@@ -20,7 +20,7 @@ let days = [
 ];
 let day = days[now.getDay()];
 let date = document.querySelector("#date");
-date.innerHTML = `${day} ${hour}:${minute}`;
+date.innerHTML = `Last updated: ${day} ${hour}:${minute}`;
 
 
 // search function
@@ -266,54 +266,70 @@ tokyoLink.addEventListener("click", showTokyoWeather)
 
 // weather forecast for the 5 next days 
 
+function formatDay(timestamp) {
+let date = new Date(timestamp * 1000);
+let day = date.getDay();
+let days = [ "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"];
+
+return days[day];
+}
+
 function showForecast(response) {
-  console.log(response.data.daily);
-  let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day, index) {
+  forecast.forEach(function (forecastDay, index) {
     if (index < 3) {
       forecastHTML =
         forecastHTML +
         `<div class="col">
           <span class="forecast-date">
           <h4>
-            ${day}
+            ${formatDay(forecastDay.dt)}
           </4>
           <h5 class="rounded-pill">
-            7°C⛅️
+            ${Math.round(forecastDay.temp.day)}°C <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="32"/>
             <br />
             <span class="weather-forecast-wind">
-              5°C <i class="far fa-moon"></i>
+              ${Math.round(forecastDay.temp.night)}°C <i class="far fa-moon"></i>
             </span>
           </h5>
           </span>
         </div>
 `;
     }
+    
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+
   let forecastElement2 = document.querySelector("#forecast2");
   let forecastHTML2 = `<div class="row">`;
-  days.forEach(function (day, index) {
-    if (index > 2) {
+  forecast.forEach(function (forecastDay, index) {
+    if (index > 2 ) {
       forecastHTML2 =
         forecastHTML2 +
         `<div class="col">
           <span class="forecast-date">
           <h4>
-            ${day}
+            ${formatDay(forecastDay.dt)}
           </4>
-          <h5 class="rounded-pill">
-            7°C⛅️
+           <h5 class="rounded-pill">
+            ${Math.round(forecastDay.temp.day)}°C <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="32"/>
             <br />
             <span class="weather-forecast-wind">
-              5°C <i class="far fa-moon"></i>
+              ${Math.round(forecastDay.temp.night)}°C <i class="far fa-moon"></i>
             </span>
           </h5>
-          </span>
-`;
+          </span>`
+           
+;
     }
   });
   forecastHTML2 = forecastHTML2 + `</div>`;
