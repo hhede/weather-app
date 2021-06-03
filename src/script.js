@@ -337,11 +337,5 @@ function showForecast(response) {
 }
 
 
-
-
-
-// Night mode 
-
-
 // default city
 searchCity("New York");
