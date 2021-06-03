@@ -110,6 +110,16 @@ footer {
   padding-left: 50px;
   padding-right: 50px;
 }
+.link {
+  text-decoration: none;
+  font-style: italic;
+}
+.link-self {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  font-style: italic;
+}
 .london:hover {
   cursor: pointer;
   font-weight: 600;
