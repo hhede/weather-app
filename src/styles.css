@@ -94,7 +94,9 @@ footer {
   background-color: #fff;
   color: #fca726;
 }
-.date {
+.dog {
+  padding-left: 20px;
+  padding-right: 30px;
 }
 .tokyo:hover {
   cursor: pointer;
@@ -103,6 +105,10 @@ footer {
 .inputCity {
   display: block;
   margin: 0 auto;
+}
+.image {
+  padding-left: 50px;
+  padding-right: 50px;
 }
 .london:hover {
   cursor: pointer;
